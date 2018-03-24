@@ -46,8 +46,9 @@ bool SpaceTheString(string s, int start, int len, string dict[], int dictLen, st
 int main()
 {
 	string str = "thisisacrazyworld";
-	string dict[] = {"complex","animal", "this", "a", "world", "is", "crazy", "idiot", "person"};
+	string dict[] = {"complex","thisi", "this", "a", "world", "is", "crazy", "idiot", "person"};
 	string output;
+	int table[1000];
 	SpaceTheString(str, 0, str.length(), dict, 9, output);
 	cout<<output;
 }
