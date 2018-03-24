@@ -19,7 +19,7 @@ bool compareString(string const &str1, const char &str2)
 	
 }
 
-bool SpaceTheString(string s, int start, int len, string dict[], int dictLen)
+bool SpaceTheString(string s, int start, int len, string dict[], int dictLen, string &output)
 {
 	if(len == 0)
 	{
@@ -32,8 +32,9 @@ bool SpaceTheString(string s, int start, int len, string dict[], int dictLen)
 		{
 			if(true == compareString(dict[i], s[start]))
 			{
-				if(true ==SpaceTheString(s, start+dict[i].length(), len - dict[i].length(), dict, dictLen))
+				if(true ==SpaceTheString(s, start+dict[i].length(), len - dict[i].length(), dict, dictLen, output))
 				{
+					output+= dict[i] + ' ';
 					return true;
 				}
 			}
@@ -44,8 +45,9 @@ bool SpaceTheString(string s, int start, int len, string dict[], int dictLen)
 
 int main()
 {
-	string str = "thisisacrazyworld";
+	string str = "thisworldisacrazyworld";
 	string dict[] = {"this", "is", "a", "crazy", "world"};
-	
-	SpaceTheString(str, 0, str.length(), dict, 5);
+	string output;
+	SpaceTheString(str, 0, str.length(), dict, 5, output);
+	cout<<output;
 }
